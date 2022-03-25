@@ -1,11 +1,9 @@
 import './App.css';
-import Search from './components/Search';
-import Button from './components/Button';
+import Search from './components/search/index';
+import Button from './components/button/index';
+import { ImageProps, gif } from './components/image';
 
 function App() {
-
-  const img = <img src='https://media.giphy.com/media/Vh8pbGX3SGRwFDh3V0/source.gif' alt="gif" />
-
   return (
     <div className="App">
       <header className="App-header">
@@ -13,11 +11,10 @@ function App() {
           <Search />
           <Button />
         </div>
-        {img}
-        
+        <ImageProps image={gif.url} alt={gif.title} />
       </header>
     </div>
   );
-}
+};
 
 export default App;
