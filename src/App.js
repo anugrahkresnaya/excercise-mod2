@@ -1,18 +1,23 @@
 import './App.css';
 import Search from './components/search/index';
 import Button from './components/button/index';
-import { ImageProps, gif } from './components/image';
+import { ImageProps } from './components/image';
+import data from './components/gif/data';
 
 function App() {
+
+  const renderGifs = () => data.filter((d) => d.rating === 'g')
+  .map((d) => <ImageProps image={d.url} title={d.title} key={d.id}/>)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <div className='Input'>
-          <Search />
-          <Button />
-        </div>
-        <ImageProps image={gif.url} alt={gif.title} />
-      </header>
+      <div className='Input'>
+        <Search />
+        <Button />
+      </div>
+      <div>
+        {renderGifs()}
+      </div>
     </div>
   );
 };
