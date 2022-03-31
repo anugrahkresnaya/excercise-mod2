@@ -6,10 +6,10 @@
 //     webp: 'https://media4.giphy.com/media/4HrBfVJJveBNS9ytSk/giphy.webp?cid=cb3f2bebpuo6jj0g5f9gfibjre2zzbb4yb1cfshtplanlrpw&rid=giphy.webp&ct=g',
 // }
 
-const ImageProps = props => {
+const ImageProps = ({ title, image }) => {
     return <div>
-        <p>{props.title}</p>
-        <img src={props.image} alt="gif img" />
+        <p>{title}</p>
+        <img src={image} alt="gif img" />
     </div>
 };
 
