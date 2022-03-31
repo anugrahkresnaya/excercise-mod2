@@ -3,8 +3,6 @@ import './App.css';
 // import Button from './components/button/index';
 import { ImageProps } from './components/image';
 // import data from './components/gif/data';
-// import axios from 'axios';
-import { Component } from 'react';
 import SearchBar from './pages/search';
 import axios from 'axios';
 import { useState } from 'react';
@@ -19,12 +17,12 @@ function App() {
 
   const searchChange = (e) => { setSearch(e.target.value) };
 
-  const getGiphyGifs = (e) => {
-    e.preventDefault();
-    const temp = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${search}&limit=12`;
-    fetch(temp)
-    .then((response) => response.json())
-    .then(data => {setGifs(data)});
+  const getGiphyGifs = async () => {
+    // e.preventDefault();
+    // const temp = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${search}&limit=12`;
+    await axios
+    .get(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${search}&limit=12`)
+    .then((response) => setGifs(response.data))
   };
   
   return (
