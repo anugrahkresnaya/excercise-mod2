@@ -7,7 +7,7 @@
 // }
 
 const ImageProps = ({ title, image }) => {
-    return <div>
+    return <div className="gif-results">
         <p>{title}</p>
         <img src={image} alt="gif img" />
     </div>

@@ -1,7 +1,11 @@
-const SearchBar = ({ getSearch, getData }) => {
-    return <div className="searchButton">
-        <input type="search" onChange={getSearch} />
-        <input type="submit" value="Search Gif" onClick={getData} />
+const SearchBar = ({ getSearch, getData, gif }) => {
+    return <div>
+        <input type="search" onChange={getSearch} value={gif} />
+        <input 
+            type="submit" 
+            value="Search Gif" 
+            onClick={getData} 
+        />
     </div>
 };
 
