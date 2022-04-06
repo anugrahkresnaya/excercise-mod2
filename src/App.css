@@ -27,3 +27,9 @@
 input {
   margin-right: 10px;
 }
+
+.trending {
+  margin: 0 auto;
+  text-align: center;
+  width: 400px;
+}

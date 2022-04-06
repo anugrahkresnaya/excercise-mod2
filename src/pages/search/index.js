@@ -1,9 +1,9 @@
-const SearchBar = ({ getSearch, getData, gif }) => {
+const SearchBar = ({ getSearch, getData, query }) => {
     return <div>
-        <input type="search" onChange={getSearch} value={gif} />
+        <input type="search" onChange={getSearch} />
         <input 
             type="submit" 
-            value="Search Gif" 
+            value="Search Gif"
             onClick={getData} 
         />
     </div>

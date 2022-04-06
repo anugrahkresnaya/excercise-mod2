@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const querySlice = createSlice({
     name: 'query',
     initialState: {
-        value: '',
+        value: [],
     },
     reducers: {
         setGif: (state, action) => {
