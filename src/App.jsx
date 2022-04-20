@@ -1,8 +1,5 @@
 import './App.css';
-// import Search from './components/search/index';
-// import Button from './components/button/index';
 import { ImageProps } from './components/image';
-// import data from './components/gif/data';
 import SearchBar from './pages/search';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -18,9 +15,6 @@ import {
 const API_KEY = 'FMQABWCRKUTLpJ7uo06TbIcLGmw54rlp';
 
 function App() {
-  // const renderGifs = () => data.filter((d) => d.rating === 'g')
-  // .map((d) => <ImageProps image={d.url} title={d.title} key={d.id}/>)
-
   return (
     <Router>
         <div>
@@ -63,36 +57,29 @@ function App() {
     const gif = useSelector((state) => state.query.value);
     const dispatch = useDispatch();
 
-    const searchChange = (e) => { setSearch(e.target.value) };
+    const searchChange = (e) => setSearch(e.target.value);
 
     const getGiphyGifs = async () => {
-      // e.preventDefault();
-      // const temp = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${search}&limit=12`;
       await axios
       .get(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${search}&limit=12`)
       .then((response) => {
         setGifs(response.data)
-        // dispatch(setGif(response.data))
+        dispatch(setGif(response.data))
       });
     };
     return (
       <>
         <h2>Search</h2>
         <div className="App">
-          <div className='Input'>
-            {/* <Search />
-            <Button /> */}
+          <div data-testid='Input'>
             <SearchBar getData={getGiphyGifs} getSearch={searchChange} query={gif} />
-            <div className='gif'>
-              <p>{gif.gif}</p>
+            <div data-testid='gif'>
+              {/* <p>{gif.gif}</p> */}
               {gifs.data?.map((gif) => (
                 <ImageProps title={gif.title} image={gif.images.fixed_width.url} key={gif.id} />
               ))}
             </div>
           </div>
-          {/* <div>
-            {renderGifs()}
-          </div> */}
         </div>
       </>
     );

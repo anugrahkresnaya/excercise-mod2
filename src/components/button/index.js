@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Button = () => {
+const ButtonGif = () => {
     return <button>Search</button>;
 }
 
-export default Button;
+export default ButtonGif;
